@@ -1,0 +1,22 @@
+[user]
+	name = neo
+	email = arash.p.z@gmail.com
+[color]
+	ui = true
+
+[alias]
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    st = status
+    sts = status -s
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    ft = fetch
+    mg = merge
+    pl = pull
+    ps = push
+
+[push]
+	default = current
