@@ -1,8 +1,8 @@
 [user]
-	name = neo
-	email = arash.p.z@gmail.com
+    name = neo
+    email = arash.p.z@gmail.com
 [color]
-	ui = true
+    ui = true
 
 [alias]
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
@@ -12,11 +12,20 @@
     br = branch
     co = checkout
     df = diff
-    lg = log -p
+    lg = log --oneline --decorate --all --graph
     ft = fetch
     mg = merge
     pl = pull
     ps = push
-
 [push]
-	default = current
+    default = simple
+[filter "lfs"]
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
+[core]
+    autocrlf = input
+[pull]
+    rebase = true
+[rerere]
+    enabled = true
