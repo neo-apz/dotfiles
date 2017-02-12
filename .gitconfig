@@ -1,6 +1,6 @@
 [user]
-	name = neo
-	email = arash.pourhabibi@epfl.ch
+    name = neo
+    email = arash.pourhabibi@epfl.ch
 [color]
     ui = true
 
@@ -19,29 +19,29 @@
     ps = push
 
 [push]
-	default = simple
+    default = simple
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        required = true
+        process = git-lfs filter-process
 [core]
-	autocrlf = input
+        autocrlf = input
 [pull]
-	rebase = true
+        rebase = true
 [rerere]
-	enabled = true
+        enabled = true
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
+        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+        trustexitcode = true
 [merge]
-	tool = Kaleidoscope
+        tool = Kaleidoscope
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
-	prompt = false
+        prompt = false
 [mergetool]
-	prompt = false
-	keepBackup = false
+        prompt = false
+        keepBackup = false
 [diff]
-	tool = Kaleidoscope
+        tool = Kaleidoscope
