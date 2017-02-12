@@ -1,6 +1,6 @@
 [user]
-    name = neo
-    email = arash.p.z@gmail.com
+	name = neo
+	email = arash.pourhabibi@epfl.ch
 [color]
     ui = true
 
@@ -8,7 +8,7 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     st = status
     sts = status -s
-    ci = commit
+    cm = commit
     br = branch
     co = checkout
     df = diff
@@ -17,15 +17,31 @@
     mg = merge
     pl = pull
     ps = push
+
 [push]
-    default = simple
+	default = simple
 [filter "lfs"]
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge %f
-    required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
 [core]
-    autocrlf = input
+	autocrlf = input
 [pull]
-    rebase = true
+	rebase = true
 [rerere]
-    enabled = true
+	enabled = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+	keepBackup = false
+[diff]
+	tool = Kaleidoscope

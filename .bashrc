@@ -1,11 +1,10 @@
+
 ### My Created bashrc###
 
 alias ls='ls -G'
 alias ll='ls -lah'
 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-export PATH="$PATH:/usr/local/sbin:/Developer/NVIDIA/CUDA-7.0/bin"
-export DYLD_LIBRARY_PATH="/Developer/NVIDIA/CUDA-7.0/lib:$DYLD_LIBRARY_PATH"
+export PATH="$PATH:/usr/local/sbin"
 
 export EDITOR='subl -w'
 
@@ -21,4 +20,6 @@ export LANG=en_US.UTF-8
 
 eval "$(thefuck --alias)"
 
+# added by travis gem
+[ -f /Users/neo/.travis/travis.sh ] && source /Users/neo/.travis/travis.sh
 
