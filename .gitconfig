@@ -1,47 +1,39 @@
 [user]
-    name = neo
-    email = arash.pourhabibi@epfl.ch
+	name = Arash Pourhabibi
+	email = arash.pourhabibi@oracle.com
 [color]
-    ui = true
-
+	ui = true
 [alias]
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    st = status
-    sts = status -s
-    cm = commit
-    br = branch
-    co = checkout
-    df = diff
-    lg = log --oneline --decorate --all --graph
-    ft = fetch
-    mg = merge
-    pl = pull
-    ps = push
-
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	st = status
+	sts = status -s
+	cm = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log --oneline --decorate --all --graph
+	ft = fetch
+	mg = merge
+	pl = pull
+	ps = push
 [push]
-    default = simple
+	default = simple
 [filter "lfs"]
-        clean = git-lfs clean -- %f
-        smudge = git-lfs smudge -- %f
-        required = true
-        process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
 [core]
-        autocrlf = input
+	autocrlf = input
+	fileMode = false
 [pull]
-        rebase = true
+	rebase = true
 [rerere]
-        enabled = true
-[mergetool "Kaleidoscope"]
-        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-        trustexitcode = true
-[merge]
-        tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-        prompt = false
+	enabled = true
 [mergetool]
-        prompt = false
-        keepBackup = false
+	prompt = false
+	keepBackup = false
 [diff]
-        tool = Kaleidoscope
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
