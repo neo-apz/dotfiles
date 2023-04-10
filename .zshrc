@@ -114,3 +114,5 @@ fi
 export HOMEBREW_NO_ANALYTICS=1
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"

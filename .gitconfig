@@ -1,39 +1,99 @@
 [user]
-	name = Arash Pourhabibi
-	email = arash.pourhabibi@oracle.com
+  name = Arash Pourhabibi
+  email = arash.pourhabibi@oracle.com
 [color]
-	ui = true
+  ui = true
 [alias]
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	st = status
-	sts = status -s
-	cm = commit
-	br = branch
-	co = checkout
-	df = diff
-	lg = log --oneline --decorate --all --graph
-	ft = fetch
-	mg = merge
-	pl = pull
-	ps = push
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  st = status
+  sts = status -s
+  cm = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log --oneline --decorate --graph
+  lga = log --oneline --decorate --all --graph
+  ft = fetch
+  fta = fetch --all
+  mg = merge
+  pl = pull
+  ps = push
 [push]
-	default = simple
+  default = simple
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 [core]
-	autocrlf = input
-	fileMode = false
+  autocrlf = input
+  fileMode = false
+  pager = delta
 [pull]
-	rebase = true
+  rebase = true
 [rerere]
-	enabled = true
+  enabled = true
+[merge]
+  conflictstyle = diff3
 [mergetool]
-	prompt = false
-	keepBackup = false
+  prompt = false
+  keepBackup = false
 [diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
+  # tool = vscode
+  colorMoved = default
+# [difftool "vscode"]
+# 	cmd = code --wait --diff $LOCAL $REMOTE
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  features = side-by-side line-numbers decorations
+  navigate = true    # use n and N to move between diff sections
+  hyperlinks = true
+  hyperlinks-file-link-format = "file-line://{path}:{line}"
+[delta "decorations"]
+  # General appearance
+  dark = true
+  syntax-theme = Dracula
+  # Commit hash
+  commit-decoration-style = bold yellow box ul
+  commit-style = 232 bold italic 130
+  # Diff contents
+  inline-hint-style = syntax
+  # minus-style = syntax "#400000"
+  # minus-emph-style = syntax bold "#800000"
+  # minus-non-emph-style = syntax auto
+  # plus-style = syntax "#003300"
+  # plus-emph-style = syntax bold "#009900"
+  # plus-non-emph-style = syntax auto
+  whitespace-error-style = "#FB4934" reverse
+  # File
+  file-style = 232 bold 184
+  file-added-label = [+]
+  file-copied-label = [C]
+  file-modified-label = [M]
+  file-removed-label = [-]
+  file-renamed-label = [R]
+  file-decoration-style = "#434C5E" overline
+  # Hunk header
+  hunk-header-style = syntax bold italic 237
+  hunk-header-decoration-style = cyan box ul
+  # Line numbers
+  line-numbers = true
+  line-numbers-left-style = "#84786A"
+  line-numbers-right-style = "#84786A"
+  line-numbers-minus-style = 124 italic
+  line-numbers-plus-style = 28 italic
+  line-numbers-zero-style = "#84786A" italic
+  line-numbers-left-format = " {nm:>4} │"
+  line-numbers-right-format = "│ {np:>4} │"
+  # # Blame
+  blame-code-style = syntax
+  blame-format = "{author:>18} ({commit:>8}) {timestamp:<13} "
+  blame-palette = "#000000" "#1d2021" "#282828" "#3c3836"
+  # # Merge conflicts
+  merge-conflict-begin-symbol = ⌃
+  merge-conflict-end-symbol = ⌄
+  merge-conflict-ours-diff-header-style = "#FABD2F" bold
+  merge-conflict-theirs-diff-header-style = "#FABD2F" bold overline
+  merge-conflict-ours-diff-header-decoration-style = ''
+  merge-conflict-theirs-diff-header-decoration-style = ''
